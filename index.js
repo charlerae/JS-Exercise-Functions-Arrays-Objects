@@ -75,18 +75,20 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(name) {
-  return {const person = {
-  name: 'name',
-  sum: (num1, num2) => num1 + num2,
-  speak: () => `Hello, my name is ${this.name}.`,
+function MakeSmartPerson(name) {
+  this.name = name.name;
+  this.sum = function(num1, num2) {
+    return num1 + num2;
+  };
+  this.speak = function() { 
+     return `Hello, my name is ${this.name}.`;
+  };
   }
-}
-}
 
-
-
-
+const charle = new MakeSmartPerson('charle');
+charle.name = 'Charle';
+charle.hobby = 'Crochet and Code';
+console.log(`${charle.speak()} and I love to spend my time on ${charle.hobby}.`);
 
 /*
 // ⭐️ Example Test Data ⭐️
